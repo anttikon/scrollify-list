@@ -1,0 +1,47 @@
+{
+  "name": "scrollify-list",
+  "version": "0.3.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "List",
+    "Scroll",
+    "Pagination"
+  ],
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anttikon/scrollify-list"
+  },
+  "bugs": {
+    "url": "https://github.com/anttikon/scrollify-list/issues"
+  },
+  "scripts": {
+    "prepublish": "yarn build",
+    "build": "babel ./src -d lib",
+    "eslint": "eslint src"
+  },
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react-waypoint": "^7.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  }
+}
