@@ -19,9 +19,7 @@ export default class App extends Component {
   }
 
   render() {
-    return <div className='search'>
-      <ScrollifyList data={this.getData()} render={(data, index) => <h1 key={data.id}>{data.name}</h1>}/>
-    </div>
+    return <ScrollifyList data={this.getData()} render={(data, index) => <h1 key={data.id}>{data.name}</h1>}/>
   }
 }
 ```

@@ -1,12 +1,12 @@
 {
   "name": "scrollify-list",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "lib/index.js",
   "license": "MIT",
   "keywords": [
-    "List",
-    "Scroll",
-    "Pagination"
+    "list",
+    "scroll",
+    "pagination"
   ],
   "babel": {
     "presets": [
