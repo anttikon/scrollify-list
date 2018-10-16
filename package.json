@@ -22,7 +22,7 @@
     "url": "https://github.com/anttikon/scrollify-list/issues"
   },
   "scripts": {
-    "prepublish": "yarn build",
+    "prepublish": "npm run build",
     "build": "babel ./src -d lib",
     "eslint": "eslint src"
   },

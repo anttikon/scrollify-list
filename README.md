@@ -5,7 +5,7 @@ Super easy scroll pagination for React.
 ![Usage](https://raw.githubusercontent.com/anttikon/scrollify-list/master/misc/demo.gif)
 
 ## Install:
-`yarn add scrollify-list`
+`npm install --save scrollify-list`
 
 ## Use:
 ```javascript
@@ -35,7 +35,7 @@ pageSize | How many rows in one page? Defaults to 15.
 ## Develop
 
 1. Clone this repository (git clone git@github.com:anttikon/scrollify-list.git)
-2. Build it: `yarn build`
-3. Add it to your project: `yarn add file:/path/to/scrollify-list`
+2. Build it: `npm run build`
+3. Add it to your project: `npm install --save file:/path/to/scrollify-list`
 4. ???
 5. Profit! 😎✌️
