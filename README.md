@@ -31,6 +31,7 @@ Property | Explanation
 data | Your data! Array of something.
 render | How do you want to render your data?
 pageSize | How many rows in one page? Defaults to 15.
+className | Wrapper className
 
 ## Develop
 

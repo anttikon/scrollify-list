@@ -56,7 +56,7 @@ export default class ScrollifyList extends Component {
   render() {
     const visibleData = this.getData(this.state.visibleRows)
     return (
-      <div>
+      <div className={this.props.className}>
         {visibleData.map((result, index) => (
           <span key={index}>
             {this.props.render(result, index)}
