@@ -45,12 +45,10 @@ export default class ScrollifyList extends Component {
   }
 
   handleScroll(index) {
-    if (this.state.data.length > 0 && index === undefined && this.lastRenderedIndex !== undefined) {
-      this.setState({ visibleRows: this.state.visibleRows + this.state.pageSize })
-    } else if (this.state.data.length > 0 && (!this.lastRenderedIndex || index > this.lastRenderedIndex)) {
+    if (this.state.data.length > 0 && (!this.lastRenderedIndex || index > this.lastRenderedIndex)) {
       this.lastRenderedIndex = index
-      this.setState({ visibleRows: this.state.visibleRows + this.state.pageSize })
     }
+    this.setState(lastState => ({ visibleRows: lastState.visibleRows + lastState.pageSize }))
   }
 
   render() {
