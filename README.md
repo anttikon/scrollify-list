@@ -35,8 +35,8 @@ className | Wrapper className
 
 ## Develop
 
-1. Clone this repository (git clone git@github.com:anttikon/scrollify-list.git)
-2. Build it: `npm run build`
-3. Add it to your project: `npm install --save file:/path/to/scrollify-list`
+1. `cd examples/basic/ && npm run start`
+2. Go to http://localhost:1234/
+3. Make changes to /src/index.js
 4. ???
 5. Profit! 😎✌️
