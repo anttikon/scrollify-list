@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Waypoint from 'react-waypoint'
 
@@ -54,7 +54,7 @@ export default class ScrollifyList extends Component {
   render() {
     const visibleData = this.getData(this.state.visibleRows)
     return (
-      <div className={this.props.className}>
+      <Fragment>
         {visibleData.map((result, index) => (
           <span key={index}>
             {this.props.render(result, index)}
@@ -62,7 +62,7 @@ export default class ScrollifyList extends Component {
           </span>
         ))}
         <Waypoint onEnter={() => this.handleScroll()} />
-      </div>
+      </Fragment>
     )
   }
 }
