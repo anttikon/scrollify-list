@@ -45,7 +45,7 @@ pageSize | How many rows in one page? Defaults to 15.
 
 ## Develop
 1. `npm run dev`
-2. `cd examples/basic/ && npm run start`
+2. `cd examples/basic/ && npm install && npm run start`
 3. Go to http://localhost:1234/
 4. Make changes to /src/index.js
 5. ???
