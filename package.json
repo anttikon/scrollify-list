@@ -1,6 +1,6 @@
 {
   "name": "scrollify-list",
-  "version": "0.4.2",
+  "version": "0.6.0",
   "main": "lib/index.js",
   "license": "MIT",
   "keywords": [
@@ -10,8 +10,8 @@
   ],
   "babel": {
     "presets": [
-      "react",
-      "babel-preset-env"
+      "@babel/preset-react",
+      "@babel/preset-env"
     ]
   },
   "repository": {
@@ -24,27 +24,32 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "babel ./src -d lib",
+    "dev": "nodemon src/index.js --exec \"npm run build\" --ignore lib",
     "eslint": "eslint src"
   },
   "files": [
     "lib/"
   ],
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react-waypoint": "^8.0.3"
+    "prop-types": "^15.7.2",
+    "react-waypoint": "^9.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^5.7.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "nodemon": "^1.19.4",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1"
   },
   "peerDependencies": {
-    "react": "^16.2.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }

@@ -1,70 +1,25 @@
-import React, { Component, Fragment } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Waypoint from 'react-waypoint'
+import { Waypoint } from 'react-waypoint'
 
-export default class ScrollifyList extends Component {
-  constructor() {
-    super()
-    this.state = {
-      data: [],
-      visibleRows: 0,
+const ScrollifyList = ({ data, pageSize, render }) => {
+  const [visibleData, setVisibleData] = useState(data.slice(0, pageSize))
+
+  const handleWaypointEnter = () =>
+    setVisibleData(data.slice(0, visibleData.length + pageSize))
+
+  return visibleData.reduce((acc, object, index) => {
+    if (index === visibleData.length - 1) {
+      acc.push(
+        <Waypoint
+          key={`${visibleData.length}-waypoint`}
+          onEnter={handleWaypointEnter}
+        />,
+      )
     }
-  }
-
-  componentWillMount() {
-    if (this.props.data) {
-      this.resetComponent(this.props.data)
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const newData = JSON.stringify(this.state.data) !== JSON.stringify(nextProps.data)
-    if (newData) {
-      this.resetComponent(nextProps.data)
-    }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    const newRows = nextState.visibleRows !== this.state.visibleRows
-    const newData = JSON.stringify(this.state.data) !== JSON.stringify(nextProps.data)
-    return newRows || newData
-  }
-
-  getData(visibleRows) {
-    return this.state.data.slice(0, visibleRows)
-  }
-
-  resetComponent(data) {
-    this.lastRenderedIndex = undefined
-    const { pageSize } = this.props
-    this.setState({
-      pageSize,
-      data: data || [],
-      visibleRows: pageSize,
-    })
-  }
-
-  handleScroll(index) {
-    if (this.state.data.length > 0 && (!this.lastRenderedIndex || index > this.lastRenderedIndex)) {
-      this.lastRenderedIndex = index
-    }
-    this.setState(lastState => ({ visibleRows: lastState.visibleRows + lastState.pageSize }))
-  }
-
-  render() {
-    const visibleData = this.getData(this.state.visibleRows)
-    return (
-      <Fragment>
-        {visibleData.map((result, index) => (
-          <span key={index}>
-            {this.props.render(result, index)}
-            {index % this.state.pageSize === 0 ? <Waypoint onEnter={() => this.handleScroll(index)} /> : null}
-          </span>
-        ))}
-        <Waypoint onEnter={() => this.handleScroll()} />
-      </Fragment>
-    )
-  }
+    acc.push(render(object, index))
+    return acc
+  }, [])
 }
 
 ScrollifyList.propTypes = {
@@ -77,3 +32,5 @@ ScrollifyList.defaultProps = {
   data: [],
   pageSize: 15,
 }
+
+export default ScrollifyList
